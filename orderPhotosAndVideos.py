@@ -2,9 +2,9 @@ import os
 import json
 from datetime import datetime
 
-NEW_DIR = 'NuovaOrganizzazione'
-BASE_DIR = '/Users/alessandro/Desktop/Takeout/Google Foto/'
-SPECIAL_DIR = '/Users/alessandro/Desktop/Takeout/Google Foto/NuovaOrganizzazione/NonTrovato'
+NEW_DIR = 'directory_name'
+BASE_DIR = '/absolute/path/for/Google_Foto_directory/'
+SPECIAL_DIR = '/absolute/path/for/Not_Found_files'
 
 def extract_date_and_title(json_file_path):
     with open(json_file_path, 'r') as f:
@@ -45,7 +45,7 @@ def create_directories(date, base_dir):
     return week_dir
 
 def main():
-    print("INIZIO")
+    print("Start")
     base_dir = BASE_DIR
     special_dir = SPECIAL_DIR
     for dirpath, dirnames, filenames in os.walk(base_dir):
@@ -69,7 +69,7 @@ def main():
                     print(f'Error processing {json_file}: {e}')
                     move_to_special_dir(json_file_path, special_dir)
     
-    print("FINE")
+    print("Finished")
 
 if __name__=="__main__":
     main()
